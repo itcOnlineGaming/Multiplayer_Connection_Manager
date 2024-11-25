@@ -1,16 +1,20 @@
 using UnityEngine;
 
-public class MultiplayerConnectionManager
+namespace ie.setu.MultiplayerConnectionManager
 {
-    // Constructor or custom initialization method
-    public MultiplayerConnectionManager()
+    public class MultiplayerConnectionManager
     {
-        Initialize();
-    }
+        // Constructor or custom initialization method
+        public MultiplayerConnectionManager()
+        {
+            Initialize();
+        }
 
-    // Initialization logic (replaces Start)
-    private void Initialize()
-    {
-        Debug.Log("Multiplayer Connection Manager Added");
+        // Initialization logic (replaces Start)
+        private void Initialize()
+        {
+            Debug.Log("Multiplayer Connection Manager Added");
+        }
     }
 }
+
