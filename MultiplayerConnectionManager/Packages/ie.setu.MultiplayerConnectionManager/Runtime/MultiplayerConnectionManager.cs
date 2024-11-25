@@ -1,16 +1,22 @@
 using UnityEngine;
 
-public class MultiplayerConnectionManager
+namespace MultiplayerConnectionManagerPackage
 {
-    // Constructor or custom initialization method
-    public MultiplayerConnectionManager()
+    public class MultiplayerConnectionManager
     {
-        Initialize();
-    }
+        public MultiplayerConnectionManager()
+        {
+            Initialize();
+        }
+        private void Initialize()
+        {
+            Debug.Log("Multiplayer Connection Manager Added");
+        }
+        public void CreateRelay()
+        {
+            Debug.Log("Relay Created");
+        }
 
-    // Initialization logic (replaces Start)
-    private void Initialize()
-    {
-        Debug.Log("Multiplayer Connection Manager Added");
     }
 }
+
