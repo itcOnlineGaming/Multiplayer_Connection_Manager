@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ie.setu.MultiplayerConnectionManager
+namespace MultiplayerConnectionManagerPackage
 {
     public class MultiplayerConnectionManager
     {
