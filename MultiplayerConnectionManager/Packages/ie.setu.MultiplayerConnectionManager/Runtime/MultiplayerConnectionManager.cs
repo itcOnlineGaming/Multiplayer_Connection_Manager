@@ -9,6 +9,7 @@ using Unity.Services.Core;
 using Unity.Collections;
 using TMPro;
 using System;
+using UnityEngine.UI;
 
 namespace MultiplayerConnectionManagerPackage
 {
@@ -17,7 +18,11 @@ namespace MultiplayerConnectionManagerPackage
         public TMP_InputField inputCode;
         public string joinCode;
 
-        private NetworkVariable<string> pinkReadyString = new NetworkVariable<string>("Not Ready");
+        public NetworkVariable<string> pinkReadyString = new NetworkVariable<string>();
+        public NetworkVariable<string> blueReadyString = new NetworkVariable<string>();
+        public NetworkVariable<string> redReadyString = new NetworkVariable<string>();
+        public NetworkVariable<string> greenReadyString = new NetworkVariable<string>();
+
 
         public async void Start()
         {
@@ -28,6 +33,32 @@ namespace MultiplayerConnectionManagerPackage
                 Debug.Log(AuthenticationService.Instance.PlayerId + " Has Signed In");
             };
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
+        }
+        private void UpdatePlayerReadyUI(int playerId, TextMeshProUGUI readyText, Image readyImage)
+        {
+            string readyState = GetPlayerReadyState(playerId);
+
+            // Update the readiness text
+            readyText.text = readyState;
+
+            if (readyState == "Ready")
+            {
+                readyImage.color = Color.green;
+            }
+            else if (readyState == "Not Ready")
+            {
+                readyImage.color = new Color(0.5019608f, 0.1921569f, 0.8156863f);
+            }
+        }
+        public string GetPlayerReadyState(int playerId)
+        {
+            switch (playerId)
+            {
+                case 0:
+                    return pinkReadyString.Value.ToString();
+                default:
+                    return "Not Ready"; 
+            }
         }
         public void TogglePinkReady()
         {
