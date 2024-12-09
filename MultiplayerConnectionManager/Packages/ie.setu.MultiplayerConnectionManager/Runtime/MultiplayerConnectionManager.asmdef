@@ -1,3 +1,9 @@
 {
-	"name": "MultiplayerConnectionManager"
+	"name": "MultiplayerConnectionManager",
+	"references": [
+        "Unity.Netcode",
+        "Unity.Services.Relay",
+        "Unity.Services.Authentication",
+        "Unity.Services.Core"
+    ]
 }
