@@ -34,7 +34,7 @@ namespace MultiplayerConnectionManagerPackage
             };
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
         }
-        private void UpdatePlayerReadyUI(int playerId, TextMeshProUGUI readyText, Image readyImage)
+        public void UpdatePlayerReadyUI(int playerId, TextMeshProUGUI readyText, Image readyImage)
         {
             string readyState = GetPlayerReadyState(playerId);
 
