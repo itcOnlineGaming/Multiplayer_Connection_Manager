@@ -26,11 +26,11 @@ namespace MultiplayerConnectionManagerPackage
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
         }
 
-        public async void CreateRelay(int numberOfPlayersToo)
+        public async void CreateRelay(int numberOfPlayers)
         {
             try
             {
-                Allocation alloc = await RelayService.Instance.CreateAllocationAsync(numberOfPlayersToo);
+                Allocation alloc = await RelayService.Instance.CreateAllocationAsync(numberOfPlayers);
                 joinCode = await RelayService.Instance.GetJoinCodeAsync(alloc.AllocationId);
                 Debug.Log(joinCode);
 
