@@ -10,6 +10,7 @@ public class MultiplayerConnectionManagerTests
     [Test]
     public void MultiplayerConnectionManagerTestsSimplePasses()
     {
-        new MultiplayerConnectionManager();
+        MultiplayerConnectionManager mp = new MultiplayerConnectionManager();
+        mp.Start();
     }
 }

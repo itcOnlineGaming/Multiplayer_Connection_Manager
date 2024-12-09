@@ -1,9 +1,23 @@
 {
-	"name": "MultiplayerConnectionManager",
-	"references": [
+    "name": "MultiplayerConnectionManager",
+    "rootNamespace": "",
+    "references": [
         "Unity.Netcode",
         "Unity.Services.Relay",
         "Unity.Services.Authentication",
-        "Unity.Services.Core"
-    ]
+        "Unity.Services.Core",
+        "Unity.Networking.Transport",
+        "Unity.TextMeshPro",
+        "Unity.Netcode.Runtime",
+        ""
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
