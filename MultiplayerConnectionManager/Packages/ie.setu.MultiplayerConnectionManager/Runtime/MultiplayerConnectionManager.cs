@@ -64,5 +64,11 @@ namespace MultiplayerConnectionManagerPackage
                 Debug.Log(e);
             }
         }
+        public int CheckNumberOfPlayers()
+        {
+            int playersAmount = NetworkManager.Singleton.ConnectedClientsList.Count; // Including the host
+            Debug.Log("Current number of players in the game: " + playersAmount);
+            return playersAmount; // Including the host
+        }
     }
 }
