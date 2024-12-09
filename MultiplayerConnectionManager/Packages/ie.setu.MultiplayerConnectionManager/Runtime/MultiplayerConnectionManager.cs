@@ -6,7 +6,6 @@ using Unity.Services.Relay;
 using UnityEngine;
 using Unity.Services.Authentication;
 using Unity.Services.Core;
-using static UnityEngine.EventSystems.StandaloneInputModule;
 using TMPro;
 
 namespace MultiplayerConnectionManagerPackage
@@ -44,7 +43,7 @@ namespace MultiplayerConnectionManagerPackage
             }
         }
 
-        public void ProcessJoinCode()
+        public void ProcessJoinCode(TMP_InputField inputCode)
         {
             JoinRelay(inputCode.text);
         }
