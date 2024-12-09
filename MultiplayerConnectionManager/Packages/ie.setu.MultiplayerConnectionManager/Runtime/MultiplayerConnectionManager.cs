@@ -6,7 +6,9 @@ using Unity.Services.Relay;
 using UnityEngine;
 using Unity.Services.Authentication;
 using Unity.Services.Core;
+using Unity.Collections;
 using TMPro;
+using System;
 
 namespace MultiplayerConnectionManagerPackage
 {
@@ -14,6 +16,9 @@ namespace MultiplayerConnectionManagerPackage
     {
         public TMP_InputField inputCode;
         public string joinCode;
+
+        private NetworkVariable<string> pinkReadyString = new NetworkVariable<string>("Not Ready");
+
         public async void Start()
         {
             await UnityServices.InitializeAsync();
@@ -24,7 +29,10 @@ namespace MultiplayerConnectionManagerPackage
             };
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
         }
-
+        public void TogglePinkReady()
+        {
+            pinkReadyString.Value = pinkReadyString.Value.Equals("Not Ready") ? "Ready" : "Not Ready";
+        }
         public async void CreateRelay()
         {
             try
@@ -63,12 +71,6 @@ namespace MultiplayerConnectionManagerPackage
             {
                 Debug.Log(e);
             }
-        }
-        public int CheckNumberOfPlayers()
-        {
-            int playersAmount = NetworkManager.Singleton.ConnectedClientsList.Count; // Including the host
-            Debug.Log("Current number of players in the game: " + playersAmount);
-            return playersAmount; // Including the host
         }
     }
 }
