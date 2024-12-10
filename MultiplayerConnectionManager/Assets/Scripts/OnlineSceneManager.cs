@@ -5,9 +5,11 @@ using MultiplayerConnectionManagerPackage;
 using TMPro;
 using System.Transactions;
 using UnityEngine.UI;
-public class Joining : MonoBehaviour
+using Unity.Netcode;
+public class OnlineSceneManager : MonoBehaviour
 {
     MultiplayerConnectionManager packageManager = new MultiplayerConnectionManager();
+    public GameObject playerIndicator;
     public Button hostButton;
     public Button joinButton;
     public Button useJoinCodeButton;
@@ -32,9 +34,41 @@ public class Joining : MonoBehaviour
 
     void Update()
     {
-        if(hostWasClicked)
+        if (hostWasClicked)
         {
             joinCode.text = "Join Code:" + packageManager.joinCode;
+            List<PlayerInfo> info = packageManager.FindPlayers("PlayerTag");
+            // Instantiate the indicator at the player's position
+            foreach (var playerInfo in info)
+            {
+                // Instantiate the indicator at the player's position
+                GameObject indicator = Instantiate(playerIndicator, playerInfo.Position - new Vector3(0,-5,0), Quaternion.identity);
+                // Spawn the indicator across the network
+                NetworkObject networkObject = indicator.GetComponent<NetworkObject>();
+                if (networkObject != null)
+                {
+                    networkObject.Spawn();
+                }
+                // Access the Indicator component
+                Indicator indicatorScript = indicator.GetComponent<Indicator>();
+
+                if (indicatorScript != null)
+                {
+                    // Change the indicator color based on whether the player joined or left
+                    if (playerInfo.Joined)
+                    {
+                        Debug.Log($"Player {playerInfo.NetworkObjectId} joined at position {playerInfo.Position}");
+                        indicatorScript.ChangeColor(Color.green);  // Change color to green for joining
+                    }
+                    else
+                    {
+                        Debug.Log($"Player {playerInfo.NetworkObjectId} left at position {playerInfo.Position}");
+                        indicatorScript.ChangeColor(Color.red);  // Change color to red for leaving
+                    }
+
+                    
+                }
+            }
         }
     }
     public void Host()
