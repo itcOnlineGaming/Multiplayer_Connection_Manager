@@ -708,6 +708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c88bf11594bc6f44bb7bdbe6134f00dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerIndicator: {fileID: 2961237838258448339, guid: 4189eebabdc704a4e88c70624010c757, type: 3}
   hostButton: {fileID: 1856560012}
   joinButton: {fileID: 418070425}
   useJoinCodeButton: {fileID: 1114426224}
@@ -2730,7 +2731,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 50}
+  m_AnchoredPosition: {x: 0, y: -250}
   m_SizeDelta: {x: 600, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2072099430
