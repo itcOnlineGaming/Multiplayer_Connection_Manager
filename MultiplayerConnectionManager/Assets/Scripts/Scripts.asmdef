@@ -1,14 +1,12 @@
 {
-    "name": "MultiplayerConnectionManager",
+    "name": "Scripts",
     "rootNamespace": "",
     "references": [
-        "Unity.Netcode",
-        "Unity.Services.Relay",
-        "Unity.Services.Authentication",
-        "Unity.Services.Core",
-        "Unity.Networking.Transport",
-        "Unity.TextMeshPro",
-        "Unity.Netcode.Runtime"
+        "GUID:fe25561d224ed4743af4c60938a59d0b",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:c7cc750c253928446b3ff8330a72a4e0",
+        "GUID:3b8ed52f1b5c64994af4c4e0aa4b6c4b",
+        "GUID:1491147abca9d7d4bb7105af628b223e"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

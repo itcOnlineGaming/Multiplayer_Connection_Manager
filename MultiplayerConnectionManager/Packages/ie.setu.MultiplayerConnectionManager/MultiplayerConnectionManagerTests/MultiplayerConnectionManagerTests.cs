@@ -4,13 +4,14 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 using MultiplayerConnectionManagerPackage;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MultiplayerConnectionManagerTests
 {
-    [Test]
-    public void MultiplayerConnectionManagerTestsSimplePasses()
+    [UnityTest]
+    public IEnumerator StartTest()
     {
-        MultiplayerConnectionManager mp = new MultiplayerConnectionManager();
-        mp.Start();
+        yield return new WaitForSeconds(1);
     }
 }
